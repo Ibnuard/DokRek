@@ -6,6 +6,7 @@ import React from "react";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import AuthHandler from "./AuthHandler";
+import Create from "../pages/Create";
 
 const Routes = () => {
   // define routes and path
@@ -27,6 +28,14 @@ const Routes = () => {
           element: (
             <React.Suspense fallback={<Loader />}>
               <Home />
+            </React.Suspense>
+          ),
+        },
+        {
+          path: "/create",
+          element: (
+            <React.Suspense fallback={<Loader />}>
+              <Create />
             </React.Suspense>
           ),
         },

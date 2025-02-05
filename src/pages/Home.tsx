@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import CardButton from "../components/CardButton";
 import BaseLayoutWithHeader from "../layout/BaseLayoutWithHeader";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <BaseLayoutWithHeader>
       <div className="flex flex-col justify-center min-h-screen">
@@ -16,14 +18,17 @@ function Home() {
           <CardButton
             title="Mulai Atur Halaman"
             desc="Mulai tambahkan akun bank atau e-wallet kamu lalu sesuaikan dengan preferensi kamu"
+            onClick={() => navigate("/create")}
           />
           <CardButton
             title="Statistik"
             desc="Lihat seberapa banyak kunjungan orang lain ke halaman DokRek kamu"
+            onClick={() => navigate("/create")}
           />
           <CardButton
             title="Bagikan"
             desc="Bagikan halaman DokRek kamu ke orang lain untuk memudahkan kamu dalam proses transaksi"
+            onClick={() => navigate("/create")}
           />
         </div>
       </div>
