@@ -1,0 +1,46 @@
+@plugin "daisyui";
+@import "tailwindcss";
+
+/* Define CSS Variables */
+:root {
+  --font-family-poppins: "Poppins", sans-serif;
+  --text-base: 1rem;
+  --text-body: #4a5568; /* Sesuaikan dengan warna teks yang diinginkan */
+  --bg-whiten: #ffffff; /* Sesuaikan dengan warna background yang diinginkan */
+}
+
+/* Base Styles */
+html,
+body {
+  font-family: var(--font-family-poppins);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--text-body);
+  background-color: var(--bg-whiten);
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Utilities */
+.no-scrollbar {
+  /* Chrome, Safari, Opera */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Alpine.js Cloaking */
+[x-cloak] {
+  display: none !important;
+}
+
+/* Scrollbar Gutter */
+html {
+  scrollbar-gutter: auto !important;
+}
