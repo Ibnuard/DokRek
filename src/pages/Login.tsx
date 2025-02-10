@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { useGetProfile } from "../hooks/useGetProfile";
 import { useNavigate } from "react-router-dom";
+import useUserStore from "../store/useUser";
 
 type TCodeResponse = Omit<
   TokenResponse,
@@ -17,6 +18,7 @@ type TCodeResponse = Omit<
 
 function Login() {
   const navigate = useNavigate();
+  const { saveUser } = useUserStore();
 
   // login google auth
   const login = useGoogleLogin({
@@ -30,7 +32,8 @@ function Login() {
       const userData = await useGetProfile(codeResponse.access_token);
 
       if (userData !== "ERROR") {
-        localStorage.setItem("USER_SESSION", userData.id);
+        localStorage.setItem("USER_SESSION", JSON.stringify(userData));
+        saveUser(userData);
         navigate("/", { replace: true });
       }
     }

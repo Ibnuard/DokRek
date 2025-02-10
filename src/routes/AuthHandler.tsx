@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import useUserStore from "../store/useUser";
 
 const AuthHandler = () => {
   const [isHasToken, setIsHasToken] = useState<boolean | null>(null);
   const { pathname } = useLocation();
+  const { user } = useUserStore();
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Cek token dari localStorage atau sessionStorage
-    const token = localStorage.getItem("USER_SESSION");
-    setIsHasToken(!!token);
+    if (user.id) {
+      setIsHasToken(true);
+    } else {
+      setIsHasToken(false);
+    }
   }, [pathname]);
 
   if (isHasToken === null) {
